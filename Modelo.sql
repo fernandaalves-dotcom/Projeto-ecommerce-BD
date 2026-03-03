@@ -96,4 +96,17 @@ CREATE TABLE Pedido(
     CONSTRAINT fk_Entrega_Pedido FOREIGN KEY (idPedido) REFERENCES Pedido(IdPedido),
     CONSTRAINT fk_Entrega_Produto FOREIGN KEY (idProduto) REFERENCES Produto(idProduto)
 );  
-   
+
+------Updates nas tabelas, para auxiliar nas queries-----
+
+ALTER TABLE Entrega
+ADD COLUMN Status ENUM('Aguardando envio','Em trânsito','Entregue') NOT NULL DEFAULT 'Aguardando envio',
+ADD COLUMN Codigo_Rastreio VARCHAR(20) UNIQUE;
+
+UPDATE Entrega
+SET Codigo_Rastreio = CONCAT('TRK', LPAD(idPedido,5,'0'), '-', LPAD(idProduto,3,'0'));
+
+
+
+
+
