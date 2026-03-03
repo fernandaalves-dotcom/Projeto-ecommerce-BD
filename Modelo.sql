@@ -1,3 +1,4 @@
+----Criando tabela de Cliente com seus respectivos atributos----
 CREATE TABLE Cliente (
   IdCliente INT AUTO_INCREMENT PRIMARY KEY,
   Email VARCHAR(100) NOT NULL UNIQUE,
@@ -6,6 +7,7 @@ CREATE TABLE Cliente (
   Data_cadastro DATE NOT NULL
   );
 
+----Criando tabela de Cliente_PJ com seus respectivos atributos----
  CREATE TABLE Cliente_PJ(
    IdCliente INT PRIMARY KEY,
    CNPJ VARCHAR(18) NOT NULL UNIQUE,
@@ -18,6 +20,7 @@ CREATE TABLE Cliente (
    REFERENCES Cliente(idCliente)
    );
 
+----Criando tabela de Cliente_PF com seus respectivos atributos----
  CREATE TABLE Cliente_PF(
    IdCliente INT PRIMARY KEY,
    CPF VARCHAR(11) NOT NULL UNIQUE,
@@ -29,7 +32,8 @@ CREATE TABLE Cliente (
    FOREIGN KEY (IdCliente)
    REFERENCES Cliente(idCliente)
    );
-  
+
+----Criando tabela de Produto com seus respectivos atributos----
  CREATE TABLE Produto( 
    idProduto INT PRIMARY KEy AUTO_INCREMENT,
    Descrição VARCHAR(100)NOT NULL,
@@ -38,6 +42,7 @@ CREATE TABLE Cliente (
    Ativo BOOLEAN NOT NULL DEFAULT TRUE
    );
 
+----Criando tabela de Pedido com seus respectivos atributos----
 CREATE TABLE Pedido(
   IdPedido INT PRIMARY KEy AUTO_INCREMENT, 
   IdCliente INT NOT NULL,
@@ -47,7 +52,8 @@ CREATE TABLE Pedido(
    FOREIGN KEY (IdCliente)
    REFERENCES Cliente(idCliente)
   );
- 
+
+----Criando tabela de Item_Pedido com seus respectivos atributos----
  CREATE TABLE Item_Pedido(   
    IdPedido INT,
    IdProduto INT,
@@ -63,6 +69,7 @@ CREATE TABLE Pedido(
    REFERENCES Produto(idProduto)
    );
 
+----Criando tabela de Pagamentos com seus respectivos atributos----
  CREATE TABLE Pagamentos(
    IdPagamento INT PRIMARY KEY AUTO_INCREMENT,
    IdPedido INT NOT NULL,
@@ -74,7 +81,8 @@ CREATE TABLE Pedido(
    FOREIGN KEY (IdPedido)
    REFERENCES Pedido(idPedido)
    );  
-   
+
+----Criando tabela de Entrega com seus respectivos atributos----
  CREATE TABLE Entrega(
     idCliente INT NOT NULL,
     idPedido INT NOT NULL,
