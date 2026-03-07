@@ -1,4 +1,5 @@
-# Projeto-ecommerce-BD
+<img src="ecommerce_1.png" width="1000">
+Projeto-ecommerce-BD
 Desafio de projeto do curso SQL- Construindo seu Primeiro Projeto Lógico de Banco de Dados
 
 ## Objetivo
